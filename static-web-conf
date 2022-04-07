@@ -1,0 +1,23 @@
+server {
+
+# Listen to a specific port of specific IP address
+ listen 127.0.0.2:81 default_server;
+
+# Same for IPV6 ( But this one is not set to that specific IP address )
+ listen [::]:81 default_server;
+
+# Server name
+ server_name mydomain.test;
+
+# File location. This is where index is.
+ root /var/www/test;
+
+# Index
+ index index.html;
+
+# location
+ location / {
+ try_files $uri $uri/ =404;
+
+}
+}
